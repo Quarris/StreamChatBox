@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import "./ChatMessage.css"
 import { twitchData } from "./Twitch"
 
@@ -15,9 +16,22 @@ export default function ChatMessage(props) {
         return null
     }).filter(v => v != null)
 
+    const [fadeProp, setFadeProp] = useState({
+        fade: 'fade-in'
+    })
+
+    useEffect(() => {
+        const timeout = setInterval(() => {
+            setFadeProp({
+                fade: 'fade-out'
+            })
+        }, 7000);
+        return () => clearInterval(timeout)
+    }, [fadeProp])
+
     return (
         <>
-            <div className="message-container" style={{ backgroundColor: props.isDark ? "#404040aa" : "#a0a0a0aa" }}>
+            <div className={`message-container ${fadeProp.fade}`} style={{ backgroundColor: props.isDark ? "#404040aa" : "#a0a0a0aa" }}>
                 <div className="user">
                     {icons.map(icon => (<img key={icon} className="badge" src={icon}></img>))}
                     <span className="offset-text">
