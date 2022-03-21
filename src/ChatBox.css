@@ -1,0 +1,14 @@
+.chat-box {
+    display: flex;
+    flex-direction: column-reverse;
+    overflow: hidden;
+    font-size: 20pt;
+    color: white;
+    height: 100vh;
+    flex: 0.1;
+}
+
+.chat-pad {
+    flex: 1000;
+}
+

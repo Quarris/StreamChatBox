@@ -1,0 +1,37 @@
+.message-container {
+    margin-top: auto;
+    float: left;
+    align-self: flex-end;
+    flex: 0.1;
+    width: 100%;
+    margin: 5px 0px;
+    border: 3px;
+    border-radius: 3px;
+}
+
+.offset-text {
+    position: relative;
+    top: -2px;
+}
+
+.user {
+    float: left;
+}
+
+.badge {
+    padding-right: 4px;
+    float: left;
+}
+
+.name {
+    float: left;
+    padding-left: 7px;
+}
+
+.message {
+    word-break: break-word;
+    position: relative;
+    top: -1px;
+    padding-left: 3px;
+    float: left;
+}

@@ -1,25 +1,32 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
+import ChatBox from './ChatBox';
+import { connectToChat } from './Twitch';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [messagesData, setMessages] = useState([])
+    const [oddDark, setOddDark] = useState(false)
+
+    const onMessage = (message, tags) => {
+        let data = { message: message, tags: tags }
+        messagesData.unshift(data)
+        if (messagesData.length > 20) {
+            messagesData.pop()
+        }
+
+        setOddDark(v => !v)
+        setMessages([...messagesData])
+    }
+
+    useEffect(() => {
+        connectToChat(onMessage)
+    }, [])
+
+    return (
+        <div className="app">
+            <ChatBox oddDark={oddDark} messages={messagesData}></ChatBox>
+        </div>
+    );
 }
 
 export default App;
