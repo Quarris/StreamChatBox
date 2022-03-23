@@ -14,7 +14,7 @@
 }
 
 .fade-out {
-    opacity: 0;
+    opacity: 1;
     transition: opacity 1s ease;
 }
 
@@ -40,7 +40,12 @@
 .message {
     word-break: break-word;
     position: relative;
+    left: 5px;
     top: -1px;
     padding-left: 3px;
-    float: left;
+}
+
+.emote {
+    position: relative;
+    top: 2px;
 }

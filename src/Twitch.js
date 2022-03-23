@@ -54,8 +54,4 @@ function downloadChannelBadges(broadcaster_id) {
     })
 }
 
-function getBadgeIcon() {
-
-}
-
 export { connectToChat, twitchData }
